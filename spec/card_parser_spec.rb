@@ -10,7 +10,7 @@ describe CardParser do
                   mock_card(4, "S"), mock_card(6, "H")]
 
       cards.each_with_index do |card, ind|
-        result = CardParser.new(card: card).parse
+        result = CardParser.new(card_str: card).parse
 
         expect(result).to eq(expected[ind])
       end
@@ -22,7 +22,7 @@ describe CardParser do
                   mock_card(12, "C"), mock_card(13, "D")]
 
       cards.each_with_index do |card, ind|
-        result = CardParser.new(card: card).parse
+        result = CardParser.new(card_str: card).parse
 
         expect(result).to eq(expected[ind])
       end
@@ -36,7 +36,7 @@ describe CardParser do
                   mock_card(4, "S"), mock_card(6, "H")]
 
       cards.each_with_index do |card, ind|
-        result = CardParser.new(card: card).parse
+        result = CardParser.parse(card_str: card)
 
         expect(result).to eq(expected[ind])
       end

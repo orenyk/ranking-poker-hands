@@ -7,6 +7,10 @@ class CardGroup
     cards_sorted_by_value.first
   end
 
+  def high_value
+    high_card[:value]
+  end
+
   private
 
   attr_reader :cards

@@ -12,4 +12,13 @@ describe CardGroup do
     end
   end
 
+  describe "#high_value" do
+    it "returns the value of the highest card" do
+      cards = [mock_card(2, "C"), mock_card(13, "H"), mock_card(10, "D")]
+
+      result = CardGroup.new(cards: cards).high_value
+
+      expect(result).to eq(13)
+    end
+  end
 end

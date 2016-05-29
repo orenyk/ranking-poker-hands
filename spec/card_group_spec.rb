@@ -12,7 +12,4 @@ describe CardGroup do
     end
   end
 
-  def mock_card(val, suit)
-    { value: val, suit: suit }
-  end
 end

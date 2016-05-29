@@ -42,8 +42,4 @@ describe CardParser do
       end
     end
   end
-
-  def mock_card(value, suit)
-    { value: value, suit: suit }
-  end
 end

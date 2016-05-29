@@ -2,7 +2,7 @@ require "spec_helper"
 require "n_of_a_kind"
 
 describe NOfAKind do
-  it_behaves_like "CardGroup", { n: 3 }
+  it_behaves_like "CardGroup", { n: nil }
 
   describe "#valid?" do
     it "returns true if there are n cards with identical values" do

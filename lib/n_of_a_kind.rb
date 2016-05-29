@@ -1,11 +1,18 @@
 require "card_group"
 
 class NOfAKind < CardGroup
+  def initialize(cards:, n:)
+    @n = n
+    super(cards: cards)
+  end
+
   def valid?
-    num_unique_values == 1
+    num_unique_values == 1 && size == n
   end
 
   private
+
+  attr_reader :n
 
   def card_values
     cards.map { |card| card[:value] }

@@ -11,6 +11,10 @@ class CardGroup
     high_card[:value]
   end
 
+  def size
+    cards.size
+  end
+
   private
 
   attr_reader :cards

@@ -1,6 +1,6 @@
-require "card_group"
+require "card_group/base"
 
-class NOfAKind < CardGroup
+class CardGroup::NOfAKind < CardGroup::Base
   def initialize(cards:, n:)
     @n = n
     super(cards: cards)

@@ -1,15 +1,15 @@
 require "spec_helper"
-require "n_of_a_kind"
+require "card_group/n_of_a_kind"
 
-describe NOfAKind do
-  it_behaves_like "CardGroup", { n: nil }
+describe CardGroup::NOfAKind do
+  it_behaves_like "card group", { n: nil }
 
   describe "#valid?" do
     it "returns true if there are n cards with identical values" do
       cards = [mock_card(2, "C"), mock_card(2, "H"), mock_card(2, "D")]
       n = 3
 
-      result = NOfAKind.new(cards: cards, n: n).valid?
+      result = CardGroup::NOfAKind.new(cards: cards, n: n).valid?
 
       expect(result).to be_truthy
     end
@@ -18,7 +18,7 @@ describe NOfAKind do
       cards = [mock_card(2, "C"), mock_card(2, "H"), mock_card(3, "D")]
       n = 3
 
-      result = NOfAKind.new(cards: cards, n: n).valid?
+      result = CardGroup::NOfAKind.new(cards: cards, n: n).valid?
 
       expect(result).to be_falsey
     end
@@ -27,7 +27,7 @@ describe NOfAKind do
       cards = [mock_card(2, "C"), mock_card(2, "H")]
       n = 3
 
-      result = NOfAKind.new(cards: cards, n: n).valid?
+      result = CardGroup::NOfAKind.new(cards: cards, n: n).valid?
 
       expect(result).to be_falsey
     end

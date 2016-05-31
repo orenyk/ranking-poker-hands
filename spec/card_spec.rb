@@ -31,26 +31,24 @@ describe Card do
     end
 
     it "raises an error when an invalid value character is passed" do
-      expect{ Card.new(card_str: "1C") }.to raise_error(ArgumentError)
+      expect{ described_class.new(card_str: "1C") }.to \
+        raise_error(ArgumentError)
     end
 
     it "raises an error when an invalid suit character is passed" do
-      expect{ Card.new(card_str: "2A") }.to raise_error(ArgumentError)
+      expect{ described_class.new(card_str: "2A") }.to \
+        raise_error(ArgumentError)
     end
   end
 
   describe ".parse" do
     it "creates a new card from the passed card string" do
-      cards = %w(2S 3C 4C 4S 6H)
-      expected_vals = [2, 3, 4, 4, 6]
-      expected_suits = %w(S C C S H)
+      card_str = double("card_str")
+      allow(Card).to receive(:new).with(card_str: card_str)
 
-      cards.each_with_index do |card, ind|
-        result = Card.parse(card_str: card)
+      described_class.parse(card_str: card_str)
 
-        expect(result.value).to eq(expected_vals[ind])
-        expect(result.suit).to eq(expected_suits[ind])
-      end
+      expect(Card).to have_received(:new).with(card_str: card_str)
     end
   end
 end

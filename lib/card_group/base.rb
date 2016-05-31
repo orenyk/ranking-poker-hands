@@ -35,5 +35,9 @@ module CardGroup
     def cards_sorted_by_value
       cards.sort_by { |card| card.value }.reverse
     end
+
+    def cards_with_value(val)
+      cards.select { |card| card.value == val }
+    end
   end
 end

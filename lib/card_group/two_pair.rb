@@ -19,10 +19,6 @@ class CardGroup::TwoPair < CardGroup::Base
     true
   end
 
-  def cards_with_value(val)
-    cards.select { |card| card.value == val }
-  end
-
   def valid_pair?(cards)
     CardGroup::NOfAKind.new(cards: cards, n: 2).valid?
   end

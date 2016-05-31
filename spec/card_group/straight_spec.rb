@@ -49,7 +49,5 @@ describe CardGroup::Straight do
 
       expect(result).to be_truthy
     end
-
   end
-
 end

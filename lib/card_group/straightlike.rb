@@ -5,7 +5,7 @@ module CardGroup::Straightlike
 
   private
 
-  attr_accessor :cards
+  attr_reader :cards
 
   def ordered_values
     card_values.sort

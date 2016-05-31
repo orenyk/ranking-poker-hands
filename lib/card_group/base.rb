@@ -2,7 +2,7 @@ module CardGroup
   class Base
     attr_reader :cards
 
-    def initialize(cards:)
+    def initialize(cards:, **attrs)
       @cards = cards
     end
 

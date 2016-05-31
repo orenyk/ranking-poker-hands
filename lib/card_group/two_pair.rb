@@ -6,6 +6,11 @@ class CardGroup::TwoPair < CardGroup::Base
     size == 4 && contains_two_pairs?
   end
 
+  def score
+    return 0 unless valid?
+    high_value * 15**2 + low_value * 15
+  end
+
   private
 
   def contains_two_pairs?
@@ -21,5 +26,9 @@ class CardGroup::TwoPair < CardGroup::Base
 
   def valid_pair?(cards)
     CardGroup::NOfAKind.new(cards: cards, n: 2).valid?
+  end
+
+  def low_value
+    unique_values.min
   end
 end

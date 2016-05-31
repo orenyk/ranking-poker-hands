@@ -41,4 +41,31 @@ describe CardGroup::TwoPair do
       expect(result).to be_truthy
     end
   end
+
+  describe "#score" do
+    it "returns high value times 15**2 plus low value times 15 if valid" do
+      high_val = 4
+      low_val = 3
+      valid = described_class.new(cards: []).tap do |v|
+        allow(v).to receive(:valid?).and_return(true)
+        allow(v).to receive(:high_value).and_return(high_val)
+        allow(v).to receive(:low_value).and_return(low_val)
+      end
+      expected_score = high_val * 15**2 + low_val * 15
+
+      result = valid.score
+
+      expect(result).to eq(expected_score)
+    end
+
+    it "returns zero when invalid" do
+      invalid = described_class.new(cards: []).tap do |i|
+        allow(i).to receive(:valid?).and_return(false)
+      end
+
+      result = invalid.score
+
+      expect(result).to eq(0)
+    end
+  end
 end

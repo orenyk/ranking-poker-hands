@@ -9,4 +9,9 @@ class CardGroup::StraightFlush < CardGroup::Base
   def valid?
     valid_straight? && valid_flush?
   end
+
+  def score
+    return 0 unless valid?
+    high_value * 15**8
+  end
 end

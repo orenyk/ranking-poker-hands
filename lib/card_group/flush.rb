@@ -7,4 +7,9 @@ class CardGroup::Flush < CardGroup::Base
   def valid?
     valid_flush?
   end
+
+  def score
+    return 0 unless valid?
+    high_value * 15**5
+  end
 end

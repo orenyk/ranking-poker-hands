@@ -7,4 +7,10 @@ class CardGroup::Straight < CardGroup::Base
   def valid?
     valid_straight?
   end
+
+  def score
+    return 0 unless valid?
+    return 5 * 15**4 if aces_low_straight?
+    high_value * 15**4
+  end
 end

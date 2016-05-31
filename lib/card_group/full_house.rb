@@ -11,6 +11,11 @@ class CardGroup::FullHouse < CardGroup::Base
     has_three_of_a_kind? && has_pair?
   end
 
+  def score
+    return 0 unless valid?
+    high_value * 15**6
+  end
+
   private
 
   attr_accessor :three_of_a_kind, :pair

@@ -3,6 +3,8 @@ require "card_group/base"
 class CardGroup::NOfAKind < CardGroup::Base
   SCORE_BASE = { 2 => 15, 3 => 15**3, 4 => 15**7 }
 
+  attr_reader :n
+
   def initialize(cards:, n:)
     @n = n
     super(cards: cards)
@@ -21,8 +23,4 @@ class CardGroup::NOfAKind < CardGroup::Base
       0
     end
   end
-
-  private
-
-  attr_reader :n
 end

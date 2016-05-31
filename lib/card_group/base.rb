@@ -1,5 +1,7 @@
 module CardGroup
   class Base
+    attr_reader :cards
+
     def initialize(cards:)
       @cards = cards
     end
@@ -13,8 +15,6 @@ module CardGroup
     end
 
     private
-
-    attr_reader :cards
 
     def high_card
       cards_sorted_by_value.first

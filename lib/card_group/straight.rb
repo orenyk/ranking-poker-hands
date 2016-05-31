@@ -2,7 +2,7 @@ require "card_group/base"
 
 class CardGroup::Straight < CardGroup::Base
   def valid?
-    ordered_values == expected_straight
+    aces_low_straight? || ordered_values == expected_straight
   end
 
   private
@@ -10,7 +10,6 @@ class CardGroup::Straight < CardGroup::Base
   attr_accessor :cards
 
   def ordered_values
-    return (1..5).to_a if aces_low_straight?
     card_values.sort
   end
 
@@ -19,7 +18,6 @@ class CardGroup::Straight < CardGroup::Base
   end
 
   def expected_straight
-    return (1..5).to_a if aces_low_straight?
     ((high_value - 4)..high_value).to_a
   end
 

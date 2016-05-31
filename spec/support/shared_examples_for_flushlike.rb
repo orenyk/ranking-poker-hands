@@ -1,5 +1,5 @@
 shared_examples_for "flush-like" do
-  describe "#valid" do
+  describe "#valid?" do
     it "returns true if there are five cards with identical suits" do
       cards = [mock_card(2, "H"), mock_card(3, "H"), mock_card(8, "H"),
                mock_card(5, "H"), mock_card(10, "H")]

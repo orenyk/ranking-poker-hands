@@ -11,10 +11,6 @@ module CardGroup::Straightlike
     card_values.sort
   end
 
-  def card_values
-    cards.map { |card| card.value }
-  end
-
   def expected_straight
     ((high_value - 4)..high_value).to_a
   end

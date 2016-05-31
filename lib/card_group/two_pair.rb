@@ -8,8 +8,6 @@ class CardGroup::TwoPair < CardGroup::Base
 
   private
 
-  attr_reader :cards
-
   def contains_two_pairs?
     return false if num_unique_values != 2
 
@@ -19,14 +17,6 @@ class CardGroup::TwoPair < CardGroup::Base
     end
 
     true
-  end
-
-  def unique_values
-    cards.map { |card| card.value }.uniq
-  end
-
-  def num_unique_values
-    unique_values.size
   end
 
   def cards_with_value(val)

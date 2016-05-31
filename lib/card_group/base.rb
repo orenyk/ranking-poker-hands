@@ -4,10 +4,6 @@ module CardGroup
       @cards = cards
     end
 
-    def high_card
-      cards_sorted_by_value.first
-    end
-
     def high_value
       high_card.value
     end
@@ -19,6 +15,22 @@ module CardGroup
     private
 
     attr_reader :cards
+
+    def high_card
+      cards_sorted_by_value.first
+    end
+
+    def card_values
+      cards.map { |card| card.value }
+    end
+
+    def unique_values
+      card_values.uniq
+    end
+
+    def num_unique_values
+      unique_values.size
+    end
 
     def cards_sorted_by_value
       cards.sort_by { |card| card.value }.reverse

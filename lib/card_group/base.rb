@@ -9,7 +9,7 @@ module CardGroup
     end
 
     def high_value
-      high_card[:value]
+      high_card.value
     end
 
     def size
@@ -21,7 +21,7 @@ module CardGroup
     attr_reader :cards
 
     def cards_sorted_by_value
-      cards.sort_by { |card| card[:value] }.reverse
+      cards.sort_by { |card| card.value }.reverse
     end
   end
 end

@@ -15,7 +15,7 @@ class CardGroup::NOfAKind < CardGroup::Base
   attr_reader :n
 
   def card_values
-    cards.map { |card| card[:value] }
+    cards.map { |card| card.value }
   end
 
   def num_unique_values

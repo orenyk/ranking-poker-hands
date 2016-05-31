@@ -9,7 +9,7 @@ describe CardGroup::NOfAKind do
       cards = [mock_card(2, "C"), mock_card(2, "H"), mock_card(2, "D")]
       n = 3
 
-      result = CardGroup::NOfAKind.new(cards: cards, n: n).valid?
+      result = described_class.new(cards: cards, n: n).valid?
 
       expect(result).to be_truthy
     end
@@ -18,7 +18,7 @@ describe CardGroup::NOfAKind do
       cards = [mock_card(2, "C"), mock_card(2, "H"), mock_card(3, "D")]
       n = 3
 
-      result = CardGroup::NOfAKind.new(cards: cards, n: n).valid?
+      result = described_class.new(cards: cards, n: n).valid?
 
       expect(result).to be_falsey
     end
@@ -27,7 +27,7 @@ describe CardGroup::NOfAKind do
       cards = [mock_card(2, "C"), mock_card(2, "H")]
       n = 3
 
-      result = CardGroup::NOfAKind.new(cards: cards, n: n).valid?
+      result = described_class.new(cards: cards, n: n).valid?
 
       expect(result).to be_falsey
     end

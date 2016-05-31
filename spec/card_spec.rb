@@ -3,14 +3,14 @@ require "card"
 
 describe Card do
 
-  describe "#new" do
+  describe ".new" do
     it "converts a card string into a hash with a value and suit" do
       cards = %w(2S 3C 4C 4S 6H)
       expected_vals = [2, 3, 4, 4, 6]
       expected_suits = %w(S C C S H)
 
       cards.each_with_index do |card, ind|
-        result = Card.new(card_str: card)
+        result = described_class.new(card_str: card)
 
         expect(result.value).to eq(expected_vals[ind])
         expect(result.suit).to eq(expected_suits[ind])
@@ -23,7 +23,7 @@ describe Card do
       expected_suits = %w(C H S C D)
 
       cards.each_with_index do |card, ind|
-        result = Card.new(card_str: card)
+        result = described_class.new(card_str: card)
 
         expect(result.value).to eq(expected_vals[ind])
         expect(result.suit).to eq(expected_suits[ind])

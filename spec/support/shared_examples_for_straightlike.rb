@@ -1,6 +1,6 @@
 shared_examples_for "straight-like" do
   describe "#valid?" do
-    it "returns true if the card values are in sequential order" do
+    it "returns true if there are five cards with sequential values" do
       cards = [mock_card(2, "H"), mock_card(3, "C"), mock_card(4, "D"),
                mock_card(5, "S"), mock_card(6, "H")]
 
@@ -12,6 +12,15 @@ shared_examples_for "straight-like" do
     it "returns false if the card values are not in sequential order" do
       cards = [mock_card(2, "H"), mock_card(3, "C"), mock_card(4, "D"),
                mock_card(7, "S"), mock_card(6, "H")]
+
+      result = described_class.new(cards: cards).valid?
+
+      expect(result).to be_falsey
+    end
+
+    it "returns false if there are not five cards" do
+      cards = [mock_card(2, "H"), mock_card(3, "C"), mock_card(4, "D"),
+               mock_card(5, "S")]
 
       result = described_class.new(cards: cards).valid?
 

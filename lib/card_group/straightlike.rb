@@ -1,6 +1,6 @@
 module CardGroup::Straightlike
   def valid_straight?
-    aces_low_straight? || ordered_values == expected_straight
+    aces_low_straight? || (ordered_values == expected_straight && size == 5)
   end
 
   private

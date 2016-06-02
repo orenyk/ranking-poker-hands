@@ -8,7 +8,7 @@ module CardGroup::Flushlike
   attr_reader :cards
 
   def card_suits
-    cards.map { |card| card.suit }
+    cards.map(&:suit)
   end
 
   def num_unique_suits

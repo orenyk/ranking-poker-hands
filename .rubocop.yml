@@ -1,0 +1,8 @@
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/PredicateName:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false

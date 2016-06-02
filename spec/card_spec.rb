@@ -2,7 +2,6 @@ require "spec_helper"
 require "card"
 
 describe Card do
-
   describe ".new" do
     it "converts a card string into a hash with a value and suit" do
       cards = %w(2S 3C 4C 4S 6H)
@@ -31,12 +30,12 @@ describe Card do
     end
 
     it "raises an error when an invalid value character is passed" do
-      expect{ described_class.new(card_str: "1C") }.to \
+      expect { described_class.new(card_str: "1C") }.to \
         raise_error(ArgumentError)
     end
 
     it "raises an error when an invalid suit character is passed" do
-      expect{ described_class.new(card_str: "2A") }.to \
+      expect { described_class.new(card_str: "2A") }.to \
         raise_error(ArgumentError)
     end
   end

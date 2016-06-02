@@ -3,7 +3,6 @@ require "card_group/parser"
 
 describe CardGroup::Parser do
   describe "#parse" do
-
   end
 
   describe ".parse" do
@@ -12,7 +11,7 @@ describe CardGroup::Parser do
       hp = double("hand parser").tap do |obj|
         allow(obj).to receive(:parse)
         allow(described_class).to receive(:new)
-          .with(cards: cards).and_return(obj)
+        .with(cards: cards).and_return(obj)
       end
 
       described_class.parse(cards: cards)

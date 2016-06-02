@@ -9,6 +9,6 @@ class HandEvaluator
 
     return left_hand.card_strs if left_hand.score > right_hand.score
     return right_hand.card_strs if right_hand.score > left_hand.score
-    raise ArgumentError, "The hands are tied"
+    fail ArgumentError, "The hands are tied"
   end
 end

@@ -1,6 +1,6 @@
 class Card
   CARD_VALS = ("2".."9").to_a + %w(T J Q K A)
-  SUIT_VALS = %W(C D H S)
+  SUIT_VALS = %w(C D H S)
 
   attr_reader :value, :suit
 
@@ -21,15 +21,13 @@ class Card
   end
 
   def convert_value(val_str)
-    begin
-      CARD_VALS.index(val_str) + 2
-    rescue
-      raise ArgumentError, "Invalid card value"
-    end
+    CARD_VALS.index(val_str) + 2
+  rescue
+    raise ArgumentError, "Invalid card value"
   end
 
   def convert_suit(suit_str)
     return suit_str if SUIT_VALS.include? suit_str
-    raise ArgumentError, "Invalid suit value"
+    fail ArgumentError, "Invalid suit value"
   end
 end

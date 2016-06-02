@@ -115,7 +115,7 @@ class Hand < CardGroup::Base
     true
   end
 
-  def has_or_is_partial_group?(group_name, attr={ n: 0 })
+  def has_or_is_partial_group?(group_name, attr = { n: 0 })
     return false if num_card_groups > 2
     group = if has_card_groups?
               card_groups.select { |cg| cg.size == attr[:n] }.first
@@ -135,7 +135,7 @@ class Hand < CardGroup::Base
       test_cards = cards_with_value(val)
       next if test_cards.length != size
     end
-  CardGroup::NOfAKind.new(cards: test_cards, n: size)
+    CardGroup::NOfAKind.new(cards: test_cards, n: size)
   end
 
   def group_class(group_name)
@@ -143,7 +143,7 @@ class Hand < CardGroup::Base
   end
 
   def camelize(sym)
-    sym.to_s.split("_").map { |w| w.capitalize }.join
+    sym.to_s.split("_").map(&:capitalize).join
   end
 
   def extract_cards

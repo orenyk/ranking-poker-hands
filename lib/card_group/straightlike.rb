@@ -18,5 +18,4 @@ module CardGroup::Straightlike
   def aces_low_straight?
     ([2, 3, 4, 5, 14] - card_values).empty?
   end
-
 end

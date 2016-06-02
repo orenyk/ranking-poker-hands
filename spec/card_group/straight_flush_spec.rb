@@ -21,7 +21,6 @@ describe CardGroup::StraightFlush do
       result = described_class.new(cards: cards).valid?
 
       expect(result).to be_falsey
-
     end
 
     it "returns false if it isn't a flush" do
@@ -31,7 +30,6 @@ describe CardGroup::StraightFlush do
       result = described_class.new(cards: cards).valid?
 
       expect(result).to be_falsey
-
     end
 
     it "returns false if there aren't five cards" do
@@ -41,7 +39,6 @@ describe CardGroup::StraightFlush do
       result = described_class.new(cards: cards).valid?
 
       expect(result).to be_falsey
-
     end
 
     it "doesn't care about the order" do

@@ -10,6 +10,4 @@ class CardGroup::Parser < CardGroup::Base
   def initialize(cards:)
     @cards = cards
   end
-
-
 end

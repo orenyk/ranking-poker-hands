@@ -2,7 +2,7 @@ module CardGroup
   class Base
     attr_reader :cards
 
-    def initialize(cards:, **attrs)
+    def initialize(cards:, **_attrs)
       @cards = cards
     end
 
@@ -21,7 +21,7 @@ module CardGroup
     end
 
     def card_values
-      cards.map { |card| card.value }
+      cards.map(&:value)
     end
 
     def unique_values
@@ -33,7 +33,7 @@ module CardGroup
     end
 
     def cards_sorted_by_value
-      cards.sort_by { |card| card.value }.reverse
+      cards.sort_by(&:value).reverse
     end
 
     def cards_with_value(val)

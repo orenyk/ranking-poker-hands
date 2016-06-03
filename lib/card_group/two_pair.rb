@@ -2,6 +2,12 @@ require "card_group/base"
 require "card_group/n_of_a_kind"
 
 class CardGroup::TwoPair < CardGroup::Base
+
+  def initialize(cards:)
+    super
+    filter_cards
+  end
+
   def valid?
     size == 4 && contains_two_pairs?
   end
@@ -12,6 +18,19 @@ class CardGroup::TwoPair < CardGroup::Base
   end
 
   private
+
+  def filter_cards
+    return if pair_vals.length < 2
+    cards.keep_if { |c| pair_vals.include? c.value }
+  end
+
+  def num_cards_of_each_value
+    Hash[unique_values.collect { |v| [v, cards_with_value(v).length] }]
+  end
+
+  def pair_vals
+    num_cards_of_each_value.select { |_k, v| v == 2 }.keys
+  end
 
   def contains_two_pairs?
     return false if num_unique_values != 2

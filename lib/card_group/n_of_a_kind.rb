@@ -7,7 +7,8 @@ class CardGroup::NOfAKind < CardGroup::Base
 
   def initialize(cards:, n:)
     @n = n
-    super(cards: cards)
+    super
+    filter_cards
   end
 
   def valid?
@@ -22,5 +23,21 @@ class CardGroup::NOfAKind < CardGroup::Base
     rescue
       0
     end
+  end
+
+  private
+
+  def filter_cards
+    return if set_vals.empty?
+    raise ArgumentError, "Multiple sets present." if set_vals.length > 1
+    cards.keep_if { |c| c.value == set_vals.first }
+  end
+
+  def num_cards_of_each_value
+    Hash[unique_values.collect { |v| [v, cards_with_value(v).length] }]
+  end
+
+  def set_vals
+    num_cards_of_each_value.select { |_k, v| v == n }.keys
   end
 end

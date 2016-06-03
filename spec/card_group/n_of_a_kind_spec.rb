@@ -4,6 +4,27 @@ require "card_group/n_of_a_kind"
 describe CardGroup::NOfAKind do
   it_behaves_like "card group", n: nil
 
+  describe ".new" do
+    it "removes any non-set cards for a valid set" do
+      set = [mock_card(2, "C"), mock_card(2, "H")]
+      cards = set << mock_card(3, "C")
+      n = 2
+
+      result = described_class.new(cards: cards, n: n).cards
+
+      expect(result).to eq(set)
+    end
+
+    it "leaves the cards array intact for an invalid set" do
+      cards = [mock_card(2, "C"), mock_card(3, "C")]
+      n = 2
+
+      result = described_class.new(cards: cards, n: n).cards
+
+      expect(result).to eq(cards)
+    end
+  end
+
   describe "#valid?" do
     it "returns true if there are n cards with identical values" do
       cards = [mock_card(2, "C"), mock_card(2, "H"), mock_card(2, "D")]

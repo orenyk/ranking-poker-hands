@@ -2,6 +2,10 @@ module CardGroup
   class Base
     attr_reader :cards
 
+    def self.within?(cards:, **attrs)
+      new(cards: cards, **attrs).valid?
+    end
+
     def initialize(cards:, **_attrs)
       @cards = cards
     end

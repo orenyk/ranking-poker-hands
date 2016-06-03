@@ -5,8 +5,6 @@ module CardGroup::Flushlike
 
   private
 
-  attr_reader :cards
-
   def card_suits
     cards.map(&:suit)
   end

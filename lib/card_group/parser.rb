@@ -4,7 +4,7 @@ class CardGroup::Parser < CardGroup::Base
   HANDS = [:straight_flush, :four_of_a_kind, :full_house, :flush, :straight,
            :three_of_a_kind, :two_pair, :one_pair].freeze
   CLASSES = [:straight_flush, :full_house, :flush, :straight,
-                :two_pair].freeze
+             :two_pair].freeze
   SETS = { four_of_a_kind: 4, three_of_a_kind: 3, one_pair: 2 }.freeze
 
   attr_accessor :card_groups

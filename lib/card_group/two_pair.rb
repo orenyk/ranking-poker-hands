@@ -2,7 +2,6 @@ require "card_group/base"
 require "card_group/n_of_a_kind"
 
 class CardGroup::TwoPair < CardGroup::Base
-
   def initialize(cards:)
     super
     filter_cards

@@ -6,7 +6,7 @@ RSpec.shared_examples "card group" do |attr|
       cg = double("cg").tap do |obj|
         allow(obj).to receive(:valid?)
         allow(described_class).to receive(:new)
-          .with(**attributes).and_return(obj)
+        .with(**attributes).and_return(obj)
       end
 
       described_class.within?(**attributes)

@@ -29,7 +29,7 @@ class CardGroup::NOfAKind < CardGroup::Base
 
   def filter_cards
     return if set_vals.empty?
-    raise ArgumentError, "Multiple sets present." if set_vals.length > 1
+    fail ArgumentError, "Multiple sets present." if set_vals.length > 1
     cards.keep_if { |c| c.value == set_vals.first }
   end
 

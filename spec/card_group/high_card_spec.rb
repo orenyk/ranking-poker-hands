@@ -4,16 +4,6 @@ require "card_group/high_card"
 describe CardGroup::HighCard do
   it_behaves_like "card group"
 
-  describe "#valid?" do
-    it "returns false to avoid false positives" do
-      cards = double("cards")
-
-      result = described_class.new(cards: cards).valid?
-
-      expect(result).to be_falsey
-    end
-  end
-
   describe "#score" do
     it "returns the value of the high card" do
       high_value = 13

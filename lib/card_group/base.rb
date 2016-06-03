@@ -7,7 +7,7 @@ module CardGroup
     end
 
     def initialize(cards:, **_attrs)
-      @cards = cards
+      @cards = cards.clone
     end
 
     def high_value

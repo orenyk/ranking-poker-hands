@@ -7,8 +7,8 @@ describe CardGroup::TwoPair do
   describe ".new" do
     it "removes any extra cards other than the two pairs if valid" do
       pairs = [mock_card(2, "C"), mock_card(2, "H"), mock_card(3, "C"),
-             mock_card(3, "H")]
-      cards = pairs << mock_card(4, "C")
+               mock_card(3, "H")]
+      cards = pairs + [mock_card(4, "C")]
 
       result = described_class.new(cards: cards).cards
 

@@ -2,14 +2,21 @@ require "spec_helper"
 require "hand"
 
 describe Hand do
-  describe ".new" do
-    it "properly identifies straight flushes" do
-      card_strs = %w(2C 3C 4C 5C 6C)
-      hand = Hand.new(card_strs: card_strs)
+  describe "#score" do
+    it "adds up the scores of the included card groups" do
+      cg1 = mock_card_group_with_score(10)
+      cg2 = mock_card_group_with_score(15)
+      allow(CardGroup::Parser).to receive(:parse).and_return([cg1, cg2])
 
-      result = hand.is_straight_flush?
+      result = described_class.new(card_strs: []).score
 
-      expect(result).to be_truthy
+      expect(result).to eq(25)
+    end
+
+    def mock_card_group_with_score(score)
+      double("card_group").tap do |cg|
+        allow(cg).to receive(:score).and_return(score)
+      end
     end
   end
 end

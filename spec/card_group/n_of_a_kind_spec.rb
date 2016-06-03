@@ -7,7 +7,7 @@ describe CardGroup::NOfAKind do
   describe ".new" do
     it "removes any non-set cards for a valid set" do
       set = [mock_card(2, "C"), mock_card(2, "H")]
-      cards = set << mock_card(3, "C")
+      cards = set + [mock_card(3, "C")]
       n = 2
 
       result = described_class.new(cards: cards, n: n).cards

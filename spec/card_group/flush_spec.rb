@@ -34,13 +34,13 @@ describe CardGroup::Flush do
   end
 
   describe "#score" do
-    it "returns the high value times 15**5 if valid" do
-      value = 7
+    it "returns the card value decimal times 100 times 15**5 if valid" do
+      value_decimal = 0.1413040302
       valid = described_class.new(cards: []).tap do |v|
         allow(v).to receive(:valid?).and_return(true)
-        allow(v).to receive(:high_value).and_return(value)
+        allow(v).to receive(:card_value_decimal).and_return(value_decimal)
       end
-      expected_score = value * 15**5
+      expected_score = 100 * value_decimal * 15**5
 
       result = valid.score
 

@@ -3,12 +3,20 @@ require "hand_evaluator"
 
 describe HandEvaluator do
   describe "#return_stronger_hand" do
+    it "breaks high card ties with next highest cards" do
+      expect_higher "AH KC 4S 3D 2H", "AC QS JD TH 8H"
+    end
+
     it "scores pairs higher than flops" do
       expect_higher "2S 2D 3S 4S 5S", "AS QS JD TS 9S"
     end
 
     it "breaks ties with pairs by rank" do
       expect_higher "3S 3D 4S 5S 6S", "2S 2D 3S 4S 5S"
+    end
+
+    it "breaks tied pairs with remaining high cards" do
+      expect_higher "3C 3H AD TD 2C", "3S 3D AS 9C 8S"
     end
 
     it "scores two pair higher than pairs" do

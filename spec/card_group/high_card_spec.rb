@@ -5,13 +5,13 @@ describe CardGroup::HighCard do
   it_behaves_like "card group"
 
   describe "#score" do
-    it "returns the value of the high card" do
-      high_value = 13
-      cards = [mock_card(2, "C"), mock_card(high_value, "H")]
+    it "returns the card values strung together as a decimal in order" do
+      cards = [mock_card(2, "C"), mock_card(13, "H")]
+      expected = 0.1302
 
       result = described_class.new(cards: cards).score
 
-      expect(result).to eq(high_value)
+      expect(result).to eq(expected)
     end
   end
 end
